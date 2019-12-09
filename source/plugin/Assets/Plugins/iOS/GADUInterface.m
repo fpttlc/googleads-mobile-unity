@@ -431,6 +431,20 @@ void GADUShowRewardedAd(GADUTypeRewardedAdRef rewardedAd) {
   [internalRewardedAd show];
 }
 
+/// Returns the type of the reward if available.
+const char *GADURewardedAdGetRewardType(GADUTypeRewardedAdRef rewardedAd) {
+  GADURewardedAd *internalRewardedAd = (__bridge GADURewardedAd *)rewardedAd;
+  GADAdReward *reward = internalRewardedAd.rewardedAd.reward;
+  return cStringCopy(reward.type.UTF8String);
+}
+
+/// Returns the amount of the reward if available.
+float GADURewardedAdGetRewardAmount(GADUTypeRewardedAdRef rewardedAd) {
+  GADURewardedAd *internalRewardedAd = (__bridge GADURewardedAd *)rewardedAd;
+  GADAdReward *reward = internalRewardedAd.rewardedAd.reward;
+  return reward.amount.floatValue;
+}
+
 /// Creates an empty GADRequest and returns its reference.
 GADUTypeRequestRef GADUCreateRequest() {
   GADURequest *request = [[GADURequest alloc] init];

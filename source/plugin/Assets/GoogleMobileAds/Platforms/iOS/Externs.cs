@@ -292,6 +292,12 @@ namespace GoogleMobileAds.iOS
         internal static extern void GADURewardedAdSetServerSideVerificationOptions(IntPtr rewardedAd, IntPtr options);
 
         [DllImport("__Internal")]
+        internal static extern string GADURewardedAdGetRewardType(IntPtr rewardedAd);
+
+        [DllImport("__Internal")]
+        internal static extern float GADURewardedAdGetRewardAmount(IntPtr rewardedAd);
+
+        [DllImport("__Internal")]
         internal static extern IntPtr GADUMediationAdapterClassNameForRewardedAd(IntPtr rewardedVideo);
 
         #endregion

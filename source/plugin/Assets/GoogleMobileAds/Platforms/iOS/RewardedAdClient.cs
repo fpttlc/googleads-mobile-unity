@@ -124,6 +124,18 @@ namespace GoogleMobileAds.iOS
             return Externs.GADURewardedAdReady(this.RewardedAdPtr);
         }
 
+        // Returns the reward item for the loaded rewarded ad.
+        public Reward RewardItem()
+        {
+          string type = Externs.GADURewardedAdGetRewardType(this.RewardedAdPtr);
+          float amount = Externs.GADURewardedAdGetRewardAmount(this.RewardedAdPtr);;
+          return new Reward()
+          {
+              Type = type,
+              Amount = amount
+          };
+        }
+
         // Returns the mediation adapter class name.
         public string MediationAdapterClassName()
         {
